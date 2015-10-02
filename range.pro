@@ -11,6 +11,7 @@ FUNCTION range, min, max, INC=inc, NPTS=npts, RECIPROCAL=reciprocal, INTEGER=int
 ;	02-09-2010 Added npts keyword option
 ; 08-16-2011: James Paul Mason: added reciprocal scaling
 ; 05-29-2012: James Paul Mason: added integer option
+; 2015/10/02: James Paul Mason: Edge case: npts=1 will now return the mean value of the input min/max
 
 ; Check to make sure only one keyword is specified
 
@@ -21,7 +22,7 @@ FUNCTION range, min, max, INC=inc, NPTS=npts, RECIPROCAL=reciprocal, INTEGER=int
 ;	ENDIF
 
 ; Define the increment, based one the keyword
-
+  IF keyword_set(npts) AND npts EQ 1 THEN return, (min + max)/2.
 	IF (keyword_set(inc) && ~keyword_set(npts)) THEN inc=inc
 	IF (keyword_set(npts) && ~keyword_set(inc)) THEN inc=(max-min)/(npts-1)
 	IF (keyword_set(reciprocal)) THEN inc=0
