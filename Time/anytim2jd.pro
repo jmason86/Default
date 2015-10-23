@@ -65,7 +65,6 @@
 ;-            
 
 function anytim2jd, dt, errmsg=errmsg
-
 ;
 ;  form output format
 ;
