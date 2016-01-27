@@ -1,6 +1,6 @@
 ;+
 ; NAME:
-;   JPMDate2DOY
+;   JPMyyyymmdd2doy
 ;
 ; PURPOSE:
 ;   Convert a standard format date to year and day of year. 
@@ -32,7 +32,7 @@
 ;   2015/06/59: James Paul Mason: Changed idate from yymmdd to yyyymmdd and associated code and changed return type to structure. 
 ;-
 
-FUNCTION JPMDate2DOY, idate
+FUNCTION JPMyyyymmdd2doy, idate
 
 ;	Check data type of input set ascII flag and convert to yyyy,mm,dd:
 	info = SIZE(idate)
