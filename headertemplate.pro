@@ -27,8 +27,7 @@
 ;   
 ;   
 ; MODIFICATION HISTORY: 
-;   2012/07/05: James Paul Mason: Wrote script.
-;   2012/07/06: James Paul Mason: Added nothing. 
+;   2012-07-05: James Paul Mason: Wrote script.
 ;-
 PRO HeaderTemplate
 

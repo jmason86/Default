@@ -31,10 +31,11 @@
 ;   progressBar = JPMProgressBar(100. * i/n_elements(array), progressBar = progressBar)
 ;
 ; MODIFICATION HISTORY:
-;   2015/02/18: James Paul Mason: Wrote script.
-;   2015/06/01: James Paul Mason: Fixed the IDLGRMODEL::DRAW error message by using CLIP = 0, which screwed up clipping in first iteration. Used SetData after first iteration
+;   2015-02-18: James Paul Mason: Wrote script.
+;   2015-06-01: James Paul Mason: Fixed the IDLGRMODEL::DRAW error message by using CLIP = 0, which screwed up clipping in first iteration. Used SetData after first iteration
 ;                                 to get ultimate desired behavior.
-;   2016/06/11: James Paul Mason: Added the ticObject, runTimeText, and etaText inputs to show these text values. They are now required. 
+;   2016-06-11: James Paul Mason: Added the ticObject, runTimeText, and etaText inputs to show these text values. They are now required. 
+;   2016-10-08: James Paul Mason: Switched from jpmsod2hhmmss to JPMseconds2hhmmss to allow for times > 1 day
 ;-
 FUNCTION JPMProgressBar, percentComplete, progressBar = progressBar, name = name, ticObject = ticObject, runTimeText = runTimeText, etaText = etaText
 
@@ -42,12 +43,12 @@ IF ~keyword_set(NAME) THEN name = 'Program Progress'
 
 ; Format run time string
 runTime = TOC(ticObject) ; [s]
-runTimeString = JPMsod2hhmmss(runTime, /RETURN_STRING) ; Note: function will return if > 1 day (86400 seconds)
+runTimeString = JPMseconds2hhmmss(runTime, /RETURN_STRING)
 
 ; Compute estimated time remaining and format string
 averageProgressRate = percentComplete / runTime
 estimatedRemainingTime = (100 - percentComplete) / averageProgressRate
-estimatedRemainingTimeString = JPMsod2hhmmss(estimatedRemainingTime, /RETURN_STRING)
+estimatedRemainingTimeString = JPMseconds2hhmmss(estimatedRemainingTime, /RETURN_STRING)
 
 IF progressBar EQ !NULL THEN BEGIN
   progressBar = barplot([percentComplete], WIDTH = 1, DIMENSIONS = [500, 100], MARGIN = [0.01, 0.2, 0.03, 0], /NO_TOOLBAR, CLIP = 0, $

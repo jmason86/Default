@@ -12,7 +12,7 @@
 ;   None
 ;
 ; KEYWORD PARAMETERS:
-;   RETURN_STRING: Set this to get a string instead of a structure returned. Has format: yyyy/mm/dd
+;   RETURN_STRING: Set this to get a string instead of a structure returned. Has format: yyyy-mm-dd
 ;
 ; OUTPUTS:
 ;   yyyymmdd [long/lonarr]: Year month day in yyyymmdd format. Returns array if input is array
@@ -28,7 +28,8 @@
 ;   yyyymmdd = JPMjd2yyyymmdd(2457328.500000)
 ;
 ; MODIFICATION HISTORY:
-;   2015/11/02: James Paul Mason: Wrote script
+;   2015-11-02: James Paul Mason: Wrote script
+;   2016-11-12: James Paul Mason: Changed / in string date to - to conform to ISO
 ;-
 FUNCTION JPMjd2yyyymmdd, jd, RETURN_STRING = RETURN_STRING
 
@@ -39,7 +40,7 @@ FOR i = 0, n_elements(yearAll) - 1 DO BEGIN
   year = yearAll[i] & month = monthAll[i] & day = dayAll[i]
   IF month LT 10 THEN monthString = '0' + strtrim(month, 2) ELSE monthString = strtrim(month, 2)
   IF day LT 10 THEN dayString = '0' + strtrim(day, 2) ELSE dayString = strtrim(day, 2)
-  IF keyword_set(RETURN_STRING) THEN yyyymmdd = [yyyymmdd, strtrim(year, 2) + '/' + monthString + '/' + dayString] ELSE $
+  IF keyword_set(RETURN_STRING) THEN yyyymmdd = [yyyymmdd, strtrim(year, 2) + '-' + monthString + '-' + dayString] ELSE $
                                      yyyymmdd = [yyyymmdd, long(strtrim(year, 2) + monthString + dayString)]
 ENDFOR
 

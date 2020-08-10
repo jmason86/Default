@@ -6,7 +6,8 @@
 ;   Convert from yyyydoy format to dd_mon_yy. Useful for GOES input. 
 ;
 ; INPUTS:
-;   yyyymmdd [long]: The date in yyyymmdd format e.g., 2016018
+;   yyyymmdd [long or string]: The date in yyyymmdd format e.g., 20160118
+;                              or as an iso string e.g., '2016-01-18' 
 ;
 ; OPTIONAL INPUTS:
 ;   None
@@ -27,13 +28,20 @@
 ;   dd_mon_yy = JPMyyyymmdd2dd_mon_yy(20160118)
 ;
 ; MODIFICATION HISTORY:
-;   2016/01/18: James Paul Mason: Wrote script.
+;   2016-01-18: James Paul Mason: Wrote script.
+;   2016-10-26: James Paul Mason: Added ability to handle ISO string style input
 ;-
 FUNCTION JPMyyyymmdd2dd_mon_yy, yyyymmdd
 
 yyyyInput = strmid(strtrim(yyyymmdd, 2), 0, 4)
-mmInput = long(strmid(strtrim(yyyymmdd, 2), 4, 2))
-ddInput = strmid(strtrim(yyyymmdd, 2), 6, 2)
+IF isa(yyyymmdd, 'long') THEN BEGIN
+  mmInput = long(strmid(strtrim(yyyymmdd, 2), 4, 2))
+  ddInput = strmid(strtrim(yyyymmdd, 2), 6, 2)
+ENDIF ELSE BEGIN
+  mmInput = long(strmid(yyyymmdd, 5, 2))
+  ddInput = strmid(yyyymmdd, 8, 2)
+ENDELSE
+
 
 ; Convert month from nueric to letters
 CASE mmInput OF 

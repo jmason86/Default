@@ -28,10 +28,12 @@
 ;
 ; MODIFICATION HISTORY:
 ;   2015/07/15: James Paul Mason: Wrote script.
+;   2016/06/13: James Paul Mason: Added the -0.5 since JD starts at noon not midnight
 ;-
 FUNCTION JPMjd2sod, jd
 
-fractionOfDay = double(jd - floor(jd))
+jdMidnight = double(jd - 0.5)
+fractionOfDay = double(jdMidnight - floor(jdMidnight))
 return, round(fractionOfDay * 24. * 3600.)
 
 END
