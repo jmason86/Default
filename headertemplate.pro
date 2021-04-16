@@ -25,9 +25,6 @@
 ;   
 ; EXAMPLE: 
 ;   
-;   
-; MODIFICATION HISTORY: 
-;   2012-07-05: James Paul Mason: Wrote script.
 ;-
 PRO HeaderTemplate
 
