@@ -8,12 +8,11 @@ setenv, 'hydra_data_jim_white=/Users/masonjp2/Dropbox/nowhere/'
 setenv, 'hydra_data_boulder_daxss=/Users/masonjp2/Dropbox/minxss_dropbox/data/fm4/hydra_tlm/'
 setenv, 'rocket_real_time=/Users/masonjp2/Dropbox/minxss_dropbox/code/rocket_real_time/'
 setenv, 'SunCET_dark_analysis=/Users/masonjp2/Dropbox/Research/ResearchScientist_LASP/Proposals/2020 SunCET Phase A CSR/Analysis/Darks/'
-setenv, 'SunCET_base=/Users/masonjp2/Dropbox/Research/Data/SunCET Base Data/'
+setenv, 'SunCET_base=/Users/masonjp2/Dropbox/suncet_dropbox/9000 Processing/data/'
 
 ; SSW
 setenv, 'SSW_AIA=/Users/masonjp2/ssw/sdo/aia/'
 setenv, 'SSW_XRT=/Users/masonjp2/ssw/hinode/xrt/'
-
 
 ; CHIANTI package stuff
 ;use_chianti, '/Users/masonjp2/Dropbox/Research/Data/CHIANTI/CHIANTI_9.0_data/'
