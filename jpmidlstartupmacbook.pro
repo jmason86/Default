@@ -15,4 +15,4 @@ setenv, 'SSW_AIA=/Users/masonjp2/ssw/sdo/aia/'
 setenv, 'SSW_XRT=/Users/masonjp2/ssw/hinode/xrt/'
 
 ; CHIANTI package stuff
-;use_chianti, '/Users/masonjp2/Dropbox/Research/Data/CHIANTI/CHIANTI_9.0_data/'
+;use_chianti, '/Users/masonjp2/Dropbox/Research/Data/CHIANTI/CHIANTI_10.1_database/'
